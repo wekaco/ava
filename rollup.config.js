@@ -26,20 +26,24 @@ export default {
     },
   ],
   plugins: [
-    replace({ __SERVER_URL__: process.env.GRAPHQL_SERVER_URL || 'http://localhost:3000/' }),
+    replace({ __SERVER_URL__: process.env.GRAPHQL_SERVER_URL || 'localhost:3000' }),
     copy({
       targets: [
         { src: 'index.html', dest: 'www/' },
         { src: 'css', dest: 'www/' }
       ]
     }),
+    commonjs({
+      namedExports: {
+        'node_modules/subscriptions-transport-ws/dist/index.js': ['SubscriptionClient']
+      }
+    }),
     globals(),
     nodeResolve({ browser: true }),
+    builtins(),
     riot({
       ext: 'riot'
     }),
-    commonjs(),
-    builtins(),
     terser({
       include:  [/^.+\.min\.js$/]
     })

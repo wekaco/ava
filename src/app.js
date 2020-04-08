@@ -11,14 +11,11 @@ import {
 const init = () => {
   const createApp = component(App);
 
-  console.log('here');
   client.query({ query: Query, variables: {} })
     .then(({ data }) => {
       let id = data.id;
-      createApp(document.getElementById('root'), { id });
-    }).catch(err => {
-      debugger;
-    });
+      createApp(document.getElementById('root'), { id, client });
+    })
 };
 
 document.addEventListener('DOMContentLoaded', init, false);

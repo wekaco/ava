@@ -12,7 +12,10 @@ const resolvers = require('./resolvers')(services);
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  cors: true
+  cors: true,
+  subscriptions: '/sub',
 });
 
-server.listen(port).then(({ url }) => debug(`🚀  Server ready at ${url}`));
+server.listen(port).then( ({ url, subscriptionsUrl }) => {
+  debug(`🚀  Server ready at ${url} / ${subscriptionsUrl}`);
+});

@@ -1,18 +1,29 @@
 <App>
-  { state.id }
+  { state.id }/{ state.value }
   <script>
-    // import Export from './export.riot';
+      // import Export from './export.riot';
+    import { client, Subscription } from './graphql.client';
 
     export default {
       state: {
         id: null,
+        value: null,
       },
       components: {
         //Export
       },
       onBeforeMount(props, state) {
         state.id = props.id
+        const observable = client.subscribe({
+          query: Subscription,
+          variables: {}
+        });
+        observable.subscribe(({ data }) => {
+          this.update({ value: data.logs.id });
+        });
       },
+      onMounted(props, state) {
+      }
     };
   </script>
 </App>
