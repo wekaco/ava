@@ -26,7 +26,7 @@ export default {
     },
   ],
   plugins: [
-    replace({ __API_KEY__: process.env.API_KEY || 'your_api_key_here' }),
+    replace({ __SERVER_URL__: process.env.GRAPHQL_SERVER_URL || 'http://localhost:3000/' }),
     copy({
       targets: [
         { src: 'index.html', dest: 'www/' },

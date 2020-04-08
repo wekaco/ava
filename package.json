@@ -16,6 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "apollo-boost": "^0.4.7",
     "apollo-server": "^2.12.0",
     "cordova-ios": "^5.1.1",
     "debug": "^4.1.1",
@@ -23,12 +24,17 @@
     "nconf": "^0.10.0",
     "nconf-yaml": "^1.0.2",
     "node-fetch": "^2.6.0",
-    "riot": "^4.11.1"
+    "riot": "^4.11.1",
+    "uuid": "^7.0.3"
   },
   "keywords": [
     "riot",
     "rollup",
-    "cordova"
+    "cordova",
+    "cordova-ios",
+    "graphql",
+    "apollo-server",
+    "nodemon"
   ],
   "devDependencies": {
     "@rollup/plugin-replace": "^2.3.1",

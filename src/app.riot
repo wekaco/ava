@@ -1,14 +1,17 @@
 <App>
+  { state.id }
   <script>
     // import Export from './export.riot';
 
     export default {
       state: {
+        id: null,
       },
       components: {
         //Export
       },
       onBeforeMount(props, state) {
+        state.id = props.id
       },
     };
   </script>

@@ -1,5 +1,7 @@
 const { gql } = require('apollo-server');
 
 module.exports = gql`
-type Query {}
+type Query {
+  id: ID
+}
 `
