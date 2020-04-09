@@ -1,18 +1,17 @@
 const { v4 } = require('uuid');
-const { PubSub } = require('apollo-server');
+const { GoogleLoggingPubSub } = require('./lib/google-logging-pubsub');
 
-const pubsub = new PubSub();
-const TOPIC_NAME = 'foo';
-setInterval(() => {
-  pubsub.publish(TOPIC_NAME, { logs: { id: v4() }})
-}, 500);
+const pubsub = new GoogleLoggingPubSub();
+const TOPIC_NAME =
+`resource.type="generic_task"
+timestamp>="${(new Date(Date.now() - (1000 * 60 * 15))).toISOString()}"`;
 
 module.exports = ({}) => ({
   Query: {
     id: () => v4()
   },
   Subscription: {
-    logs: {
+    entry: {
       subscribe: () => pubsub.asyncIterator([ TOPIC_NAME ])
     }
   }

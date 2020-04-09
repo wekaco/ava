@@ -57,8 +57,10 @@ query Query {
 
 const Subscription = gql`
 subscription Subscription {
-  logs {
-    id
+  entry {
+    data {
+      message
+    }
   }
 }
 `;
