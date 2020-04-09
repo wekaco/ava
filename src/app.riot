@@ -1,5 +1,5 @@
 <App>
-  { state.id }/{ state.value }
+  <label>{ state.value }</label>
   <script>
       // import Export from './export.riot';
     import { client, Subscription } from './graphql.client';
@@ -19,7 +19,8 @@
           variables: {}
         });
         observable.subscribe(({ data }) => {
-          this.update({ value: data.logs.id });
+          const { message } = data.entry.data;
+          this.update({ value: data.entry.data.message });
         });
       },
       onMounted(props, state) {

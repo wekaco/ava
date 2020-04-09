@@ -107,3 +107,6 @@ www
 # Cordova
 platforms
 plugins
+
+# gcloud auth
+gcloud.json

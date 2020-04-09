@@ -6,10 +6,14 @@ type Query {
 }
 
 type Subscription {
-  logs: Log
+  entry: Entry
+}
+
+type Entry {
+  data: Log
 }
 type Log {
-  id: String
+  message: String
 }
 
 schema {
