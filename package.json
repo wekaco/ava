@@ -2,7 +2,7 @@
   "name": "net.wekaco.ava",
   "displayName": "Ava",
   "author": "github.com/wekaco",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "license": "MIT",
