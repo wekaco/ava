@@ -26,7 +26,7 @@
     "graphql": "^15.0.0",
     "nconf": "^0.10.0",
     "nconf-yaml": "^1.0.2",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "riot": "^4.11.1",
     "subscriptions-transport-ws": "^0.9.16",
     "uuid": "^7.0.3"
